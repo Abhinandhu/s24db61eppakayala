@@ -1,8 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p I am abhi
+  h1 This is Animal Page
+  -
+    let results = [
+      { name: 'Lion', type: 'Mammal', age: 20 },
+      { name: 'Eagle', type: 'Bird', age: 25 },
+      { name: 'Shark', type: 'Fish', age: 125 }
+    ]
+   
+  .container-fluid
+    .row
+      each item in results
+        .col-sm-2
+          .search-result
+            h6 Name: #{item.name}
+            h6 Type: #{item.type}
+            h6 Age: #{item.age}
 
-
+  a(href="/") Back to index page
