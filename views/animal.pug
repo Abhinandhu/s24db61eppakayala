@@ -8,14 +8,19 @@ block content
       { name: 'Eagle', type: 'Bird', age: 25 },
       { name: 'Shark', type: 'Fish', age: 125 }
     ]
-   
+
   .container-fluid
     .row
-      each item in results
+      each item, index in results
         .col-sm-2
-          .search-result
+          .search-result(onclick=`buy(${index})`) 
             h6 Name: #{item.name}
             h6 Type: #{item.type}
             h6 Age: #{item.age}
 
   a(href="/") Back to index page
+
+  script.
+    function buy(index) {
+      alert("You purchased item " + index);
+    }
