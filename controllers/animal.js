@@ -28,13 +28,25 @@ exports.animal_update_put = function(req, res) {
 
 
 // Animals List
+// exports.animal_list = async function(req, res) {
+//     try{
+//     theanimal = await animal.find();
+//     res.send(theanimal);
+//     }
+//     catch(err){
+//     res.status(500);
+//     res.send(`{"error": ${err}}`);
+//     } 
+//    };
+
 exports.animal_list = async function(req, res) {
-    try{
-    theanimal = await animal.find();
-    res.send(theanimal);
-    }
-    catch(err){
-    res.status(500);
-    res.send(`{"error": ${err}}`);
+
+    try {
+        const animals = await animal.find();
+        res.render('animal', { title: 'Animal Search Results', results: animals });
     } 
-   };
+    catch(err){
+            res.status(500);
+            res.send(`{"error": ${err}}`);
+            } 
+};

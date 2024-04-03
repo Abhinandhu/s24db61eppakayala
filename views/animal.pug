@@ -11,12 +11,21 @@ block content
 
   .container-fluid
     .row
-      each item, index in results
+
+      each animal in results
         .col-sm-2
-          .search-result(onclick=`buy(${index})`) 
-            h6 Name: #{item.name}
-            h6 Type: #{item.type}
-            h6 Age: #{item.age}
+          .search-result
+            h6 Name: #{animal.name}
+            h6 Type: #{animal.type}
+            h6 Age: #{animal.age}
+
+
+      //- each item, index in results
+      //-   .col-sm-2
+      //-     .search-result(onclick=`buy(${index})`) 
+      //-       h6 Name: #{item.name}
+      //-       h6 Type: #{item.type}
+      //-       h6 Age: #{item.age}
 
   a(href="/") Back to index page
 
