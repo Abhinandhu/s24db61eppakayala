@@ -25,3 +25,16 @@ exports.animal_delete = function(req, res) {
 exports.animal_update_put = function(req, res) {
     res.send('NOT IMPLEMENTED: animal update PUT ' + req.params.id);
 };
+
+
+// Animals List
+exports.animal_list = async function(req, res) {
+    try{
+    theanimal = await animal.find();
+    res.send(theanimal);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    } 
+   };
