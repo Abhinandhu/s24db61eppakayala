@@ -11,7 +11,7 @@ block content
 
   .container-fluid
     .row
-
+      
       each animal in results
         .col-sm-2
           .search-result
@@ -31,5 +31,5 @@ block content
 
   script.
     function buy(index) {
-      alert("You purchased item " + index);
-    }
+        alert(`You purchased item ${index}`);
+            }
