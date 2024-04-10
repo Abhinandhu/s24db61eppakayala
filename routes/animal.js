@@ -16,9 +16,14 @@ router.put('/', function(req, res) {
 
 router.get('/', animal_controller.animal_update_put );
 
-  /* GET detail animal page */
+/* GET detail animal page */
 router.get('/detail', animal_controller.animal_view_one_Page);
 
+/* GET create costume page */
 router.get('/create', animal_controller.animal_create_Page);
+
+/* GET create update page */
+router.get('/update', animal_controller.animal_update_Page);
+
 
 module.exports = router;
