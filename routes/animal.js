@@ -13,6 +13,10 @@ router.put('/', function(req, res) {
   if(req.body.checkboxsale)toUpdate.sale = true;
   else toUpdate.same = false;
   })
-  router.get('/', animal_controller.animal_update_put );
+
+router.get('/', animal_controller.animal_update_put );
+
+  /* GET detail animal page */
+router.get('/detail', animal_controller.animal_view_one_Page);
 
 module.exports = router;

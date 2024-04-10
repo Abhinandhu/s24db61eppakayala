@@ -1,0 +1,24 @@
+extends layout
+block content
+  h1= title
+
+  if toShow == null
+    h2 No instance to show
+  else
+    - let animalid = toShow._id
+    - let animal_type = toShow.name
+    - let animal_size = toShow.type
+    - let animal_price = toShow.age 
+    div
+      div.row
+        div.animalAttr.mr-3 animal ID is:
+        div #{animalid}
+      div.row
+        div.animalAttr.mr-3 animal Type is:
+        div #{animal_type}
+      div.row
+        div.animalAttr.mr-3 animal Size is:
+        div #{animal_size}
+      div.row
+        div.animalAttr.mr-3 animal Price is:
+        div #{animal_price}
