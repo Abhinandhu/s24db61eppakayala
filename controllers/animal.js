@@ -91,10 +91,10 @@ exports.animal_update_put = async function (req, res) {
     try {
         let toUpdate = await animal.findById(req.params.id)
         // Do updates of properties
-        if (req.body.animal_type)
-            toUpdate.animal_type = req.body.animal_type;
-        if (req.body.animal_size) toUpdate.animal_size = req.body.animal_size;
-        if (req.body.animal_price) toUpdate.animal_price = req.body.animal_price;
+        if (req.body.name)
+            toUpdate.name = req.body.name;
+        if (req.body.type) toUpdate.type = req.body.type;
+        if (req.body.age) toUpdate.age = req.body.age;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)
@@ -158,3 +158,19 @@ exports.animal_create_Page = function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
     };
+
+
+    // Handle a delete one view with id from query
+    exports.animal_delete_Page = async function(req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try{
+    result = await animal.findById(req.query.id)
+    res.render('animaldelete', { title: 'animal Delete', toShow:
+    result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    

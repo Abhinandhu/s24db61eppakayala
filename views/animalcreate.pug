@@ -5,13 +5,13 @@ block content
   form(id='animalForm', action="/resource/animal", method="POST")
     div.form-group
       label.animalAttr(for='name') animal Name
-      input#animal_type(type='text', name='animal_type')
+      input#name(type='text', name='name')
     div.form-group
       label.animalAttr(for='type') animal Type
-      input#size(type='text', name='animal_size')
+      input#type(type='text', name='type')
     div.form-group
       label.animalAttr(for='age') animal Age
-      input#cost(type='number', name='animal_price')
+      input#age(type='number', name='age')
     input(type="submit")
 
   script.

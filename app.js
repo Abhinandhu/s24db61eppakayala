@@ -41,12 +41,17 @@ const connectionString = process.env.MONGO_CON; //Added
 //Mangoose
 mongoose.connect(connectionString);
 
+let reseed = true;
+if (reseed){
+  recreateDB();
+}
+
 // Added the MongoDB connection status check
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open", function(){
     console.log("Connection to DB succeeded");
-    recreateDB();
+    
 });
 
 async function recreateDB(){
