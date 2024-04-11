@@ -11,4 +11,15 @@ a {
   background-color: aquamarine;
   width: 120px;
   }
-  
+   
+  .form-group {
+    margin-bottom: 20px;
+  }
+   
+  input[type="submit"] {
+    background-color: #6b5ddc;
+  }
+   
+  input[type="submit"]:hover {
+    background-color: #e085e0;
+  }

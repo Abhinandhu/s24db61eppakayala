@@ -1,25 +1,29 @@
 extends layout
 block content
   h1= title
-  - let animalid = toShow._id
-  - let name = toShow.name
-  - let type = toShow.type
-  - let age = toShow.age
-  div.row(class='mb-2')
-    div.mr-1 ID is
-    div #{animalid}
-  - let actionid = "/resource/animal/" + animalid
-  form(id='animalForm', action= actionid, method="PUT")
-    div.form-group
-      label.animalAttr(for='name') animal name
-      input#name(type='text', name='name', value= name )
-    div.form-group
-      label.animalAttr(for='type') animal type
-      input#type(type='text', name='type', value= type )
-    div.form-group
-      label.animalAttr(for='age') animal age
-      input#age(type='number', name='age', value= age )
-    input(type="submit")
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let animalid = toShow._id
+    - let name = toShow.name
+    - let type = toShow.type
+    - let age = toShow.age
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{animalid}
+    - let actionid = "/resource/animal/" + animalid
+    form(id='animalForm', action= actionid, method="PUT")
+      div.form-group
+        label.animalAttr(for='name') animal name
+        input#name(type='text', name='name', value= name )
+      div.form-group
+        label.animalAttr(for='type') animal type
+        input#type(type='text', name='type', value= type )
+      div.form-group
+        label.animalAttr(for='age') animal age
+        input#age(type='number', name='age', value= age )
+      input(type="submit")
   script.
     document.forms['animalForm'].addEventListener('submit', (event) => {
       event.preventDefault();

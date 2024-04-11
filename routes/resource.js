@@ -18,4 +18,3 @@ router.get('/animal/:id', animal_controller.animal_detail);
 // GET request for list of all animal items.
 router.get('/animal', animal_controller.animal_list);
 module.exports = router;
-
