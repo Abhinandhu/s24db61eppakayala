@@ -1,35 +1,44 @@
+//- extends layout
+
+//- block content
+//-   h1 This is Animal Page
+
+//-   .container-fluid
+//-     .row
+      
+//-       each animal in results
+//-         .col-sm-2
+//-           .search-result
+//-             h6 Name: #{animal.name}
+//-             h6 Type: #{animal.type}
+//-             h6 Age: #{animal.age}
+//-   a(href="/") Back to index page
+
+//-   script.
+//-     function buy(index) {
+//-         alert(`You purchased item ${index}`);
+//-             }
+
+
 extends layout
 
 block content
   h1 This is Animal Page
-  //- -
-  //-   let results = [
-  //-     { name: 'Lion', type: 'Mammal', age: 20 },
-  //-     { name: 'Eagle', type: 'Bird', age: 25 },
-  //-     { name: 'Shark', type: 'Fish', age: 125 }
-  //-   ]
 
   .container-fluid
     .row
-      
       each animal in results
         .col-sm-2
           .search-result
             h6 Name: #{animal.name}
             h6 Type: #{animal.type}
             h6 Age: #{animal.age}
-
-
-      //- each item, index in results
-      //-   .col-sm-2
-      //-     .search-result(onclick=`buy(${index})`) 
-      //-       h6 Name: #{item.name}
-      //-       h6 Type: #{item.type}
-      //-       h6 Age: #{item.age}
+            - let updateUrl = `/animal/update?id=${animal._id}` // Yellow: Define update URL
+            a.btn.btn-primary(href=updateUrl) Update
 
   a(href="/") Back to index page
 
   script.
     function buy(index) {
         alert(`You purchased item ${index}`);
-            }
+    }
