@@ -1,19 +1,33 @@
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Welcome to #{title}
+//-   p I am abhinandhu Advik
+//-   button(type="button", class="btn btn-secondary", onclick = "double()") I am a button 
+//-   br
+//-   a(href='/animal') View Search Results
+//-   div#double Up the amount 
+//-   script.
+//-     var value = 0;
+//-     var power = 1;
+//-     function double() {
+//-         value += 1;
+//-         power *= 2;
+//-         document.getElementById('double').innerText = "Two to the power " + value + " is " + power;
+//-     }
+
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p I am abhinandhu Advik
-  button(type="button", class="btn btn-secondary", onclick = "double()") I am a button 
-  br
-  a(href='/animal') View Search Results
-  div#double Up the amount 
-  script.
-    var value = 0;
-    var power = 1;
-    function double() {
-        value += 1;
-        power *= 2;
-        document.getElementById('double').innerText = "Two to the power " + value + " is " + power;
-    }
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/animal") Take me to animal
+    br
+    a(href="/logout") Logout
+
 

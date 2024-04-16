@@ -1,3 +1,25 @@
+//- //- extends layout
+
+//- //- block content
+//- //-   h1 This is Animal Page
+
+//- //-   .container-fluid
+//- //-     .row
+      
+//- //-       each animal in results
+//- //-         .col-sm-2
+//- //-           .search-result
+//- //-             h6 Name: #{animal.name}
+//- //-             h6 Type: #{animal.type}
+//- //-             h6 Age: #{animal.age}
+//- //-   a(href="/") Back to index page
+
+//- //-   script.
+//- //-     function buy(index) {
+//- //-         alert(`You purchased item ${index}`);
+//- //-             }
+
+
 //- extends layout
 
 //- block content
@@ -5,26 +27,30 @@
 
 //-   .container-fluid
 //-     .row
-      
 //-       each animal in results
 //-         .col-sm-2
 //-           .search-result
 //-             h6 Name: #{animal.name}
 //-             h6 Type: #{animal.type}
 //-             h6 Age: #{animal.age}
+//-             - let updateUrl = `/animal/update?id=${animal._id}` // Yellow: Define update URL
+//-             a.btn.btn-primary(href=updateUrl) Update
+//-             - let createurl = `/animal/create` // Yellow: Define update URL
+//-             a.btn.btn-secondary(href=createurl) create
+
 //-   a(href="/") Back to index page
 
 //-   script.
 //-     function buy(index) {
 //-         alert(`You purchased item ${index}`);
-//-             }
-
+//-     }
 
 extends layout
 
 block content
   h1 This is Animal Page
 
+  a.btn.btn-success(href="/animal/create") Create New Animal
   .container-fluid
     .row
       each animal in results
@@ -33,8 +59,12 @@ block content
             h6 Name: #{animal.name}
             h6 Type: #{animal.type}
             h6 Age: #{animal.age}
-            - let updateUrl = `/animal/update?id=${animal._id}` // Yellow: Define update URL
+            - let updateUrl = `/animal/update?id=${animal._id}` // Define update URL
             a.btn.btn-primary(href=updateUrl) Update
+            - let detailUrl = `/animal/detail?id=${animal._id}` // Define detail URL
+            a.btn.btn-info(href=detailUrl) Details
+            - let deleteUrl = `/animal/delete?id=${animal._id}` // Define delete URL
+            a.btn.btn-secondary(href=deleteUrl) Delete
 
   a(href="/") Back to index page
 
